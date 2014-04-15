@@ -44,7 +44,8 @@ var data = {
 				"france": 0,
 				"suisse":0
 			},
-			"demission":0
+			"demission":0,
+			"rendement":0
 		}
 	}
 };
@@ -80,35 +81,48 @@ var parametres = {
 	}
 }
 
+production_usine = new Array();
+production_usine[0] = 0;
+production_usine[1] = 0;
+production_usine[2] = 0;
+production_usine[3] = 0;
+production_usine[4] = 0;
+production_usine[5] = 50;
+production_usine[6] = 63;
+production_usine[7] = 77;
+production_usine[8] = 92;
+production_usine[9] = 108;
+
 function input(data){
-	data.p1.marketing.prix_vente.espagne = parseInt($("input[name='data[p1][marketing][prix_vente][espagne]']").val());
-	data.p1.marketing.prix_vente.france = parseInt($("input[name='data[p1][marketing][prix_vente][france]']").val());
-	data.p1.marketing.prix_vente.suisse = parseInt($("input[name='data[p1][marketing][prix_vente][suisse]']").val());
-	data.p1.marketing.communication.espagne = parseInt($("input[name='data[p1][marketing][communication][espagne]']").val());
-	data.p1.marketing.communication.france = parseInt($("input[name='data[p1][marketing][communication][france]']").val());
-	data.p1.marketing.communication.suisse = parseInt($("input[name='data[p1][marketing][communication][suisse]']").val());
-	data.p1.marketing.representants.espagne = parseInt($("input[name='data[p1][marketing][representants][espagne]']").val());
-	data.p1.marketing.representants.france = parseInt($("input[name='data[p1][marketing][representants][france]']").val());
-	data.p1.marketing.representants.suisse = parseInt($("input[name='data[p1][marketing][representants][suisse]']").val());
-	data.p1.marketing.commissions.espagne = parseInt($("input[name='data[p1][marketing][commissions][espagne]']").val());
-	data.p1.marketing.commissions.france = parseInt($("input[name='data[p1][marketing][commissions][france]']").val());
-	data.p1.marketing.commissions.suisse = parseInt($("input[name='data[p1][marketing][commissions][suisse]']").val());
-	data.p1.production.production = parseInt($("input[name='data[p1][production][production]']").val());
-	data.p1.production.achat = parseInt($("input[name='data[p1][production][achat]']").val());
-	data.p1.production.vente = parseInt($("input[name='data[p1][production][vente]']").val());
-	data.p1.production.salaire = parseInt($("input[name='data[p1][production][salaire]']").val());
-	data.p1.production.embauche = parseInt($("input[name='data[p1][production][embauche]']").val());
-	data.p1.production.licenciement = parseInt($("input[name='data[p1][production][licenciement]']").val());
-	data.p1.production.formation = parseInt($("input[name='data[p1][production][formation]']").val());
-	data.p1.production.recherche = parseInt($("input[name='data[p1][production][recherche]']").val());
-	data.p1.finance.emprunt = parseInt($("input[name='data[p1][finance][emprunt]']").val());
-	data.p1.finance.capital = parseInt($("input[name='data[p1][finance][capital]']").val());
-	data.p1.finance.benefice = parseInt($("input[name='data[p1][finance][benefice]']").val());
-	data.p1.etude = parseInt($("input[name='data[p1][etude]']").val());
-	data.p1.prevision.demission = parseInt($("input[name='data[p1][prevision][demission]']").val());
-	data.p1.prevision.ventes.espagne = parseInt($("input[name='data[p1][prevision][ventes][espagne]']").val());
-	data.p1.prevision.ventes.france = parseInt($("input[name='data[p1][prevision][ventes][france]']").val());
-	data.p1.prevision.ventes.suisse = parseInt($("input[name='data[p1][prevision][ventes][suisse]']").val());
+	data.p1.marketing.prix_vente.espagne = parseFloat($("input[name='data[p1][marketing][prix_vente][espagne]']").val());
+	data.p1.marketing.prix_vente.france = parseFloat($("input[name='data[p1][marketing][prix_vente][france]']").val());
+	data.p1.marketing.prix_vente.suisse = parseFloat($("input[name='data[p1][marketing][prix_vente][suisse]']").val());
+	data.p1.marketing.communication.espagne = parseFloat($("input[name='data[p1][marketing][communication][espagne]']").val());
+	data.p1.marketing.communication.france = parseFloat($("input[name='data[p1][marketing][communication][france]']").val());
+	data.p1.marketing.communication.suisse = parseFloat($("input[name='data[p1][marketing][communication][suisse]']").val());
+	data.p1.marketing.representants.espagne = parseFloat($("input[name='data[p1][marketing][representants][espagne]']").val());
+	data.p1.marketing.representants.france = parseFloat($("input[name='data[p1][marketing][representants][france]']").val());
+	data.p1.marketing.representants.suisse = parseFloat($("input[name='data[p1][marketing][representants][suisse]']").val());
+	data.p1.marketing.commissions.espagne = parseFloat($("input[name='data[p1][marketing][commissions][espagne]']").val());
+	data.p1.marketing.commissions.france = parseFloat($("input[name='data[p1][marketing][commissions][france]']").val());
+	data.p1.marketing.commissions.suisse = parseFloat($("input[name='data[p1][marketing][commissions][suisse]']").val());
+	data.p1.production.production = parseFloat($("input[name='data[p1][production][production]']").val());
+	data.p1.production.achat = parseFloat($("input[name='data[p1][production][achat]']").val());
+	data.p1.production.vente = parseFloat($("input[name='data[p1][production][vente]']").val());
+	data.p1.production.salaire = parseFloat($("input[name='data[p1][production][salaire]']").val());
+	data.p1.production.embauche = parseFloat($("input[name='data[p1][production][embauche]']").val());
+	data.p1.production.licenciement = parseFloat($("input[name='data[p1][production][licenciement]']").val());
+	data.p1.production.formation = parseFloat($("input[name='data[p1][production][formation]']").val());
+	data.p1.production.recherche = parseFloat($("input[name='data[p1][production][recherche]']").val());
+	data.p1.finance.emprunt = parseFloat($("input[name='data[p1][finance][emprunt]']").val());
+	data.p1.finance.capital = parseFloat($("input[name='data[p1][finance][capital]']").val());
+	data.p1.finance.benefice = parseFloat($("input[name='data[p1][finance][benefice]']").val());
+	data.p1.etude = parseFloat($("input[name='data[p1][etude]']").val());
+	data.p1.prevision.demission = parseFloat($("input[name='data[p1][prevision][demission]']").val());
+	data.p1.prevision.rendement = parseFloat($("input[name='data[p1][prevision][rendement]']").val());
+	data.p1.prevision.ventes.espagne = parseFloat($("input[name='data[p1][prevision][ventes][espagne]']").val());
+	data.p1.prevision.ventes.france = parseFloat($("input[name='data[p1][prevision][ventes][france]']").val());
+	data.p1.prevision.ventes.suisse = parseFloat($("input[name='data[p1][prevision][ventes][suisse]']").val());
 }
 
 function calcul(resultat,data,parametres){
@@ -120,6 +134,10 @@ function calcul(resultat,data,parametres){
 	var ca = ca_espagne + ca_france + ca_suisse;
 	var nb_machine = (data.p1.production.achat + parametres.p1.nombre_machine);
 	var nb_personnel = parametres.p1.nombre_personnel + data.p1.production.embauche - data.p1.production.licenciement - data.p1.prevision.demission;
+	var rapport_l_k = nb_personnel/(nb_machine*10);
+	var nb_usine_pleine = Math.floor(nb_machine / 10);
+	var nb_machine_usine_non_pleine = nb_machine % 10;
+	var production_possible = nb_usine_pleine * 125 + production_usine[nb_machine_usine_non_pleine];
 	
 	resultat.p1.charges.matiere = parametres.p1.cout_matiere * total_vente;
 	resultat.p1.charges.personnel = nb_personnel * data.p1.production.salaire;
@@ -135,10 +153,22 @@ function calcul(resultat,data,parametres){
 	resultat.p1.charges.financier = 0.07 * data.p1.finance.emprunt;
 	resultat.p1.charges.publicite = data.p1.marketing.communication.espagne + data.p1.marketing.communication.suisse + data.p1.marketing.communication.france;
 	resultat.p1.charges.etude = data.p1.etude + data.p1.production.embauche * data.p1.production.salaire * 0.1 + data.p1.production.licenciement * data.p1.production.salaire * 0.7;
-	
+
 	var cout_production = (resultat.p1.charges.matiere + resultat.p1.charges.personnel + resultat.p1.charges.heure + resultat.p1.charges.maintenance + resultat.p1.charges.dotation)/data.p1.production.production;
 	var stock_final = data.p1.production.production - total_vente;
 	resultat.p1.charges.stockage = parametres.p1.stock * parametres.p1.cout_production + stock_final*cout_production;
+	
+	resultat.p1.charges.total = resultat.p1.charges.matiere +
+		resultat.p1.charges.personnel +
+		resultat.p1.charges.representant +
+		resultat.p1.charges.autre +
+		resultat.p1.charges.maintenance + 
+		resultat.p1.charges.recherche +
+		resultat.p1.charges.dotation +
+		resultat.p1.charges.financier +
+		resultat.p1.charges.publicite +
+		resultat.p1.charges.etude +
+		resultat.p1.charges.stockage;
 } 
 function maj(resultat){
 	$("input[name='resultat[p1][charges][matiere]']").val(resultat.p1.charges.matiere);
@@ -150,7 +180,7 @@ function maj(resultat){
 	$("input[name='resultat[p1][charges][maintenance]']").val(resultat.p1.charges.maintenance);
 	$("input[name='resultat[p1][charges][recherche]']").val(resultat.p1.charges.recherche);
 	$("input[name='resultat[p1][charges][financier]']").val(resultat.p1.charges.financier);
-	$("input[name='resultat[p1][charges][communication]']").val(resultat.p1.charges.communication);
+	$("input[name='resultat[p1][charges][publicite]']").val(resultat.p1.charges.publicite);
 	$("input[name='resultat[p1][charges][dotation]']").val(resultat.p1.charges.dotation);
 	$("input[name='resultat[p1][charges][etude]']").val(resultat.p1.charges.etude);
 	$("input[name='resultat[p1][charges][total]']").val(resultat.p1.charges.total);
