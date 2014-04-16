@@ -53,7 +53,7 @@ body {
 
     <div class="container">
 
-    	<div class="tab-content">
+    	<div class="tab-content" >
 
     		<!-- Tab about -->
     		<div class="tab-pane" id="about">
@@ -64,31 +64,32 @@ body {
     		</div>
 
     		<!-- Periode 1 tab -->
-    		<div class="tab-pane active" id="periode1">
+    		<div class="tab-pane active" id="periode1" data-bind="with: data.p1" >
 
 				  <div class="page-header">
 				  	<h1>Période 1</h1>
 				  </div>
           
-          <div class="panel panel-primary">
+          <div class="panel panel-primary" data-bind="with: marketing">
             <div class="panel-heading">
               <h3 class="panel-title">A - Marketing</h3>
             </div>
             <div class="panel-body">
 	  			<table class="table">
+					
 				<tr>
 			
 					<td colspan="2"><h4>A1-Prix de vente</h4></td>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][prix_vente][espagne]"></td>
+					<td><input class="form-control input-sm" data-bind="value: prix_vente.espagne" ></td>
 					<td>Zone 1 - Espagne (en euros)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][prix_vente][france]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: prix_vente.france" ></td>
 					<td>Zone 2 - France (en euros)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][prix_vente][suisse]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: prix_vente.suisse" ></td>
 					<td>Zone 3 - Suisse (en euros)</td>
 				</tr>
 				<tr>
@@ -96,15 +97,15 @@ body {
 					<td colspan="2"><h4>A2-Budgets Communication</h4></td>
 				<tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][communication][espagne]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: communication.espagne" ></td>
 					<td>Zone 1 - Espagne (en milliers euros)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][communication][france]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: communication.france"></td>
 					<td>Zone 2 - France (en milliers euros)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][communication][suisse]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: communication.suisse"></td>
 					<td>Zone 3 - Suisse (en milliers euros)</td>
 				</tr>
 				<tr>
@@ -112,15 +113,15 @@ body {
 					<td colspan="2"><h4>A3-Force de vente - Nombre de représentants</h4></td>
 				<tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][representants][espagne]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: representants.espagne"></td>
 					<td>Zone 1 - Espagne (en unités)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][representants][france]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: representants.france"></td>
 					<td>Zone 2 - France (en unités)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][representants][suisse]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: representants.suisse"></td>
 					<td>Zone 3 - Suisse (en unités)</td>
 				</tr>
 				<tr>
@@ -128,79 +129,79 @@ body {
 					<td colspan="2"><h4>A3-Force de vente - Commissions des représentants</h4></td>
 				<tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][commissions][espagne]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: commissions.espagne"></td>
 					<td>Zone 1 - Espagne (en %)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][commissions][france]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: commissions.france"></td>
 					<td>Zone 2 - France (en %)</td>
 				</tr>
 				<tr>
-					<td><input type="text" class="form-control input-sm" name="data[p1][marketing][commissions][suisse]"></td>
+					<td><input type="text" class="form-control input-sm" data-bind="value: commissions.suisse"></td>
 					<td>Zone 3 - Suisse (en %)</td>
 				</tr>
 			</table>
             </div>
           </div>
 
-          <div class="panel panel-primary">
+          <div class="panel panel-primary"  data-bind="with: production">
             <div class="panel-heading">
               <h3 class="panel-title">B - Production, Recherche et Développement</h3>
             </div>
             <div class="panel-body">
 	  			<table class="table">
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][production]"></td>
+		  			<td><input type="text" class="form-control input-sm"  data-bind="value: production"></td>
 		  			<td>Production décidée (en milliers de produits)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][achat]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : achat"></td>
 		  			<td>Achat de machine (en unités)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][vente]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : vente"></td>
 		  			<td>Vente de machine (en unités)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][salaire]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : salaire"></td>
 		  			<td>Salaire du personnel (en milliers euros)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][embauche]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : embauche"></td>
 		  			<td>Embauche de personnel productif (en unités)/td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][licenciement]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : licenciement"></td>
 		  			<td>Licenciement de personnel productif (en unités)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][formation]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : formation"></td>
 		  			<td>Budget Formation (en milliers euros)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][production][recherche]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : recherche"></td>
 		  			<td>Recherche et qualité (en milliers euros)</td>
 		  		</tr>
 			  </table>
             </div>
           </div>
 
-          <div class="panel panel-primary">
+          <div class="panel panel-primary"  data-bind="with: finance">
             <div class="panel-heading">
               <h3 class="panel-title">C - Finances</h3>
             </div>
             <div class="panel-body">
 	  			<table class="table">
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][finance][emprunt]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : emprunt"></td>
 		  			<td>Emprunt demandé (en milliers euros)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][finance][capital]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : capital"></td>
 		  			<td>Augementation de capital (en milliers euros)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][finance][benefice]"></td>
+		  			<td><input type="text" class="form-control input-sm" data-bind="value : benefice"></td>
 		  			<td>Pourcementage de bénéfice distribué (max 40%)</td>
 		  		</tr>
 			 </table>
@@ -208,45 +209,45 @@ body {
             </div>
           </div>
 
-          <div class="panel panel-primary">
+          <div class="panel panel-primary"  data-bind="with: etude">
             <div class="panel-heading">
               <h3 class="panel-title">D - Etudes</h3>
             </div>
             <div class="panel-body">
 	  			<table class="table">
 					<tr>
-						<td><input type="text" class="form-control input-sm" name="data[p1][etude]"></td>
+						<td><input type="text" class="form-control input-sm" data-bind="value : etude"></td>
 						<td>Budget etude (0,15,75 ou 90 milliers d'euros)</td>
 					</tr>
 				</table>
             </div>
           </div>
 
-          <div class="panel panel-primary">
+          <div class="panel panel-primary"  data-bind="with: prevision">
             <div class="panel-heading">
               <h3 class="panel-title">E - Prévisions</h3>
             </div>
             <div class="panel-body">
 	  			<table class="table">
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][prevision][demission]"></td>
+		  			<td><input type="text" class="form-control input-sm"  data-bind="value : demission"></td>
 		  			<td>Nombre de démissions prévues (en unités)</td>
 		  		</tr>
 
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][prevision][ventes][espagne]"></td>
+		  			<td><input type="text" class="form-control input-sm"  data-bind="value : ventes.espagne"></td>
 		  			<td>Ventes prévues en Zone 1 - Espagne (en milliers d'unités)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][prevision][ventes][france]"></td>
+		  			<td><input type="text" class="form-control input-sm"  data-bind="value : ventes.france"></td>
 		  			<td>Ventes prévues en Zone 2 - France (en milliers d'unités)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][prevision][ventes][suisse]"></td>
+		  			<td><input type="text" class="form-control input-sm"  data-bind="value : ventes.suisse"></td>
 		  			<td>Ventes prévues en Zone 3 - Suisse (en milliers d'unités)</td>
 		  		</tr>
 		  		<tr>
-		  			<td><input type="text" class="form-control input-sm" name="data[p1][prevision][rendement]"></td>
+		  			<td><input type="text" class="form-control input-sm"  data-bind="value : rendement"></td>
 		  			<td>Rendement (en %)</td>
 		  		</tr>
 			  </table>
@@ -349,7 +350,7 @@ body {
 
     	</div>
     </div>
-
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
